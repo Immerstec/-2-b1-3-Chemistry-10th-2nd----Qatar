@@ -6,7 +6,7 @@ public class UI_Control : MonoBehaviour
 {
 
 
-
+    [SerializeField] LiquidSystem liquidSystem_TestTube;
     public int UINum = 1;
 
     // Update is called once per frame
@@ -16,8 +16,11 @@ public class UI_Control : MonoBehaviour
         switch (UINum)
         {
             case 1: //1.1 to 2.1
-                UIActivation(UINum);
-                UINum++;
+                if (liquidSystem_TestTube.available >= 250 )
+                {
+                    UIActivation(UINum);
+                    UINum++;
+                }
                 break;
             case 2: //2.1 to 3.1
                 UIActivation(UINum);

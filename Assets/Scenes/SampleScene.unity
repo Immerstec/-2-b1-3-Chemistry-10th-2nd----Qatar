@@ -6184,7 +6184,7 @@ PrefabInstance:
     - target: {fileID: 6435424006787443923, guid: 830d93970b1d5e94693fbe589ccad0b5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3015
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 6435424006787443923, guid: 830d93970b1d5e94693fbe589ccad0b5,
         type: 3}
@@ -6304,8 +6304,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592567230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0075, z: 0}
-  m_LocalScale: {x: 0.97, y: 0.02, z: 0.97}
+  m_LocalPosition: {x: 0, y: 0.0239, z: 0}
+  m_LocalScale: {x: 0.97, y: 0.3, z: 0.97}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1913297433}
@@ -8192,7 +8192,7 @@ PrefabInstance:
     - target: {fileID: 5995579365524651242, guid: 9646f218cfdf00144ae28a8c94b80f82,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5995579365524651242, guid: 9646f218cfdf00144ae28a8c94b80f82,
         type: 3}
@@ -9279,6 +9279,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1634434277401601780, guid: 2637bb9e0025143489f93e3c7d317b58,
+        type: 3}
+      propertyPath: liquidSystem_TestTube
+      value: 
+      objectReference: {fileID: 5037977860767887903}
     m_RemovedComponents:
     - {fileID: 859074087122667327, guid: 2637bb9e0025143489f93e3c7d317b58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2637bb9e0025143489f93e3c7d317b58, type: 3}
@@ -10457,6 +10462,7 @@ GameObject:
   - component: {fileID: 4534034046833046}
   - component: {fileID: 198763299185913876}
   - component: {fileID: 199637122325409748}
+  - component: {fileID: 199637122325409749}
   m_Layer: 0
   m_Name: Lighter_Flame
   m_TagString: Untagged
@@ -21462,6 +21468,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!65 &199637122325409749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679476812364272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01895269, z: 0.010000001}
+  m_Center: {x: -0.0000000036218102, y: -0.010231602, z: 0.000000029900356}
 --- !u!23 &202698636014055001
 MeshRenderer:
   m_ObjectHideFlags: 0
