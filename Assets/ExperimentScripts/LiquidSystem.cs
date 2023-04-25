@@ -92,7 +92,7 @@ public class LiquidSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //setfloatSurface();
+        setfloatSurface();
         liquidMat = liquidMesh.material;
         percentageFill = liquidMat.GetFloat("_Fill");
         current_angle = Vector3.Dot(transform.up, Vector3.down);
@@ -165,15 +165,17 @@ public class LiquidSystem : MonoBehaviour
     //        _molar = (_molar + molar) / 2;
     //    }
     //}
-    //float CalculatesurfacePoint() {
+    float CalculatesurfacePoint()
+    {
 
 
-    //   return ( liquidMat.GetFloat("_Fill")*(TopSurfaceHeight - bottomSurfaceHeight) ) + bottomSurfaceHeight ;
-            
-    //}
-    //public void setfloatSurface() {
-    //    Vector3 floatSurfacePos = new Vector3(floatSurface.transform.position.x, CalculatesurfacePoint(), floatSurface.transform.position.z);
-    //    floatSurface.transform.position = floatSurfacePos;
-    //}
+        return (liquidMat.GetFloat("_Fill") * (TopSurfaceHeight - bottomSurfaceHeight)) + bottomSurfaceHeight;
+
+    }
+    public void setfloatSurface()
+    {
+        Vector3 floatSurfacePos = new Vector3(floatSurface.transform.position.x, CalculatesurfacePoint(), floatSurface.transform.position.z);
+        floatSurface.transform.position = floatSurfacePos;
+    }
 
 }

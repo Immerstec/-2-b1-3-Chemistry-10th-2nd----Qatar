@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LiquidTrigger
+  - Surface
+  - Liquid
+  - TubeBottom
   layers:
   - Default
   - TransparentFX
