@@ -113,7 +113,7 @@ namespace Oculus.Interaction.Input
             // blend between open hand and fully closed fist
             float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, _controller);
             _animator.SetFloat(_animParamIndexFlex, flex);
-
+            
             // Point
             _animator.SetLayerWeight(_animLayerIndexPoint, _pointBlend);
 
@@ -144,5 +144,17 @@ namespace Oculus.Interaction.Input
         }
 
         #endregion
+
+        public void HandSelectPose()
+        {
+            enabled = false;
+            _animator.SetFloat(_animParamIndexFlex, 1);
+            _animator.SetLayerWeight(_animLayerIndexPoint, 1);
+        }
+
+        public void ReturnHandOrigionPose()
+        {
+            enabled = true;
+        }
     }
 }
