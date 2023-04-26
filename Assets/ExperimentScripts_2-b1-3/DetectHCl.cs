@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class DetectHCl : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _particleSystem_bubbles;
+    [SerializeField] ParticleSystem _particleSystem_smoke;
+    [System.NonSerialized] public static bool IsDone;
+    [System.NonSerialized] public static bool IsDoneZn;
     LiquidSystem liquidSystem;
-    [SerializeField] ParticleSystem _particleSystem;
-    [System.NonSerialized] public bool IsDone;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         liquidSystem = GetComponent<LiquidSystem>();
     }
 
     private void Update()
     {
-        
-    }
-
-    void HClInteract() {
-
-        if (!IsDone)
+        if (!IsDone && IsDoneZn && liquidSystem.available>0)
         {
-            _particleSystem.Play();
+            _particleSystem_bubbles.Play();
+            _particleSystem_smoke.Play();
             IsDone = true;
         }
-
     }
+
+
 }

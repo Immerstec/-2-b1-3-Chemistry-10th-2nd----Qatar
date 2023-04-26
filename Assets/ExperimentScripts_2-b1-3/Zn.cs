@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class Zn : MonoBehaviour
 {
-    DetectHCl detectHCl;
     DetectTube detectTube;
 
     private void Start()
     {
-
+        detectTube = GetComponent<DetectTube>();
     }
+
     // Update is called once per frame
     void Update()
     {
-        if (detectTube.IsDone && detectHCl.IsDone)
+        if (detectTube.IsDone && DetectHCl.IsDone)
         {
-
-            transform.localScale -= Vector3.one * Time.deltaTime;
-        
+            if (transform.localScale.x > 0.03)
+                transform.localScale -= Vector3.one * (Time.deltaTime/10);
+            else
+                gameObject.SetActive(false);
         
         }
+        
     }
 }

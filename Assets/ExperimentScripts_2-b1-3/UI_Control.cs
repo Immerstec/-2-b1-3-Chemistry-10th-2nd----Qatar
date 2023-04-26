@@ -19,7 +19,7 @@ public class UI_Control : MonoBehaviour
         switch (UINum)
         {
             case 1: //1.1 to 2.1
-                if (liquidSystem_TestTube.available >= 200 || detectH2)
+                if (liquidSystem_TestTube.available >= 250 || (DetectTube.numZn > 0 && liquidSystem_TestTube.available > 0))
                 {
                     UIActivation(UINum);
                     UINum++;
@@ -32,14 +32,14 @@ public class UI_Control : MonoBehaviour
                 }
                 break;
             case 3: //3.1 to 4.1
-                if ( (DetectTube.numZn >= 5 && CustomSocket_Test_Tube_M.wasInSoket) || detectH2 )
+                if ( (DetectTube.numZn >= 5 && CustomSocket_Test_Tube_M.wasInSoket) || detectH2.IsDetectedH2 )
                 {
                     UIActivation(UINum);
                     UINum++;
                 }
                 break;
             case 4: //4.1 to 5.1
-                if (detectH2)
+                if (detectH2.IsDetectedH2)
                 {
                     UIActivation(UINum);
                     UINum++;
