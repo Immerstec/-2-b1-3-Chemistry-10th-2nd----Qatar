@@ -6175,7 +6175,7 @@ PrefabInstance:
     - target: {fileID: 6435424006787443923, guid: 830d93970b1d5e94693fbe589ccad0b5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6435424006787443923, guid: 830d93970b1d5e94693fbe589ccad0b5,
         type: 3}
@@ -6297,7 +6297,7 @@ GameObject:
   - component: {fileID: 592567232}
   m_Layer: 0
   m_Name: Fill_Colldr
-  m_TagString: Surface
+  m_TagString: H2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21524,10 +21524,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679476812364272}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01895269, z: 0.010000001}
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: -0.0000000036218102, y: -0.010231602, z: 0.000000029900356}
 --- !u!114 &199637122325409750
 MonoBehaviour:
@@ -21541,6 +21541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd158e0b9427ca4d922eceb8a5b59b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particleSystem_Explosion: {fileID: 198342038334167618}
 --- !u!23 &202698636014055001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21965,7 +21966,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647305764467433425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
   m_LocalPosition: {x: 0.006, y: 0.742, z: 0.2019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21987,7 +21988,7 @@ Transform:
   - {fileID: 1227985778}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!114 &284158204280848866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51099,7 +51100,7 @@ Transform:
   - {fileID: 2018724682}
   - {fileID: 1625530613}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &4644388364154868361
 MonoBehaviour:
@@ -70030,7 +70031,7 @@ Transform:
   - {fileID: 860976322}
   - {fileID: 592567231}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8289585613792274064
 MeshFilter:
