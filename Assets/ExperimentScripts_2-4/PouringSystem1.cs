@@ -50,6 +50,9 @@ public class PouringSystem1 : MonoBehaviour
         {
 
             GetComponent<ParticleSystem>().trigger.GetCollider(0).gameObject.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
+
+            DetectHCl.IncreseEmission(1);
+
         }
 
     }

@@ -8,6 +8,7 @@ public class DetectSockets : MonoBehaviour
     [SerializeField] CustomSocket CustomSocket_Test_Tube_M;
     ParticleSystem _particleSystem;
     [System.NonSerialized] public static bool Isbubble;
+    [System.NonSerialized] public static bool IsSocket;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +27,14 @@ public class DetectSockets : MonoBehaviour
                 _particleSystem.Play();
                 Isbubble = true;
             }
+            if(!IsSocket)
+                IsSocket = true;
 
         }
-        else {
-            if (_particleSystem.isPlaying)
-            {
-
-                _particleSystem.Stop();
-                Isbubble = false;
-
-            }
+        else 
+        {
+            if (IsSocket)
+                IsSocket = false;
         }
         
     }

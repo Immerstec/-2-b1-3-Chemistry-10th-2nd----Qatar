@@ -24,6 +24,7 @@ public class DetectTube : MonoBehaviour
             GameObject zn = Instantiate(Zn_peice, pos, Quaternion.identity);
             zn.transform.SetParent(gameObject.transform.parent);
             numZn++;
+            DetectHCl.IncreseEmission(50);
             DetectHCl.IsDoneZn = true;
             IsDone = true;
         }
