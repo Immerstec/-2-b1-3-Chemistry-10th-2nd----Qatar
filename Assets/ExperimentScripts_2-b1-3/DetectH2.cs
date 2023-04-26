@@ -19,7 +19,7 @@ public class DetectH2 : MonoBehaviour
         {
            
             _particleSystem_Explosion.Play();
-
+            IsDetectedH2 = true;
         }
     }
     private void OnTriggerEnter(Collider other)
