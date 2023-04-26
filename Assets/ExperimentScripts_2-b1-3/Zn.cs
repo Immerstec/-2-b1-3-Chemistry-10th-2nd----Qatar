@@ -17,7 +17,7 @@ public class Zn : MonoBehaviour
         if (detectTube.IsDone && DetectHCl.IsDone)
         {
             if (transform.localScale.x > 0.03)
-                transform.localScale -= Vector3.one * (Time.deltaTime/10);
+                transform.localScale -= Vector3.one * (Time.deltaTime/100);
             else
                 gameObject.SetActive(false);
         

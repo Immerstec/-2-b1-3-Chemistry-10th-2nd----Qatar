@@ -293,6 +293,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9628a090e9fcb446b2ada1cc6642cd4, type: 3}
+--- !u!1 &119200292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995579365524651243, guid: 9646f218cfdf00144ae28a8c94b80f82,
+    type: 3}
+  m_PrefabInstance: {fileID: 1268991282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190773613
 GameObject:
   m_ObjectHideFlags: 0
@@ -9836,6 +9842,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1268991282}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2014727034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119200292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c7c7e614a487b42babad0a0d50ca3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CustomSocket_Glass_Trough: {fileID: 8766043472953659375}
+  CustomSocket_Test_Tube_M: {fileID: 5037977860767887899}
 --- !u!1 &2017795183
 GameObject:
   m_ObjectHideFlags: 0
