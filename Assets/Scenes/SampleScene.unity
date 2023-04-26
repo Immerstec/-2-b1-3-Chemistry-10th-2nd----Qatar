@@ -6310,7 +6310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592567230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0239, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0412, z: 0}
   m_LocalScale: {x: 0.97, y: 0.3, z: 0.97}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8153,7 +8153,7 @@ PrefabInstance:
     - target: {fileID: 5995579365524651221, guid: 9646f218cfdf00144ae28a8c94b80f82,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5995579365524651221, guid: 9646f218cfdf00144ae28a8c94b80f82,
         type: 3}

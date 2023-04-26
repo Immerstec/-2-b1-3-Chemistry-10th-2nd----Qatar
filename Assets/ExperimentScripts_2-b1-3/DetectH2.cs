@@ -20,6 +20,7 @@ public class DetectH2 : MonoBehaviour
            
             _particleSystem_Explosion.Play();
             IsDetectedH2 = true;
+            DetectHCl.emissionValue_Bubbles_Glass_Trough = 0;
         }
     }
     private void OnTriggerEnter(Collider other)

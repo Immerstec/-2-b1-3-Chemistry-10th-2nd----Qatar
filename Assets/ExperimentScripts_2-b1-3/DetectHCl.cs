@@ -13,11 +13,11 @@ public class DetectHCl : MonoBehaviour
     [System.NonSerialized] public static float emissionValue_Smoke;
     [System.NonSerialized] public static float emissionValue_Bubbles;
     [System.NonSerialized] public static float emissionValue_Bubbles_Glass_Trough;
+    [System.NonSerialized] public static float Max_emissionValue_Bubbles_Glass_Trough;
     ParticleSystem.EmissionModule emission_bubbles;
     ParticleSystem.EmissionModule emission_smoke;
     ParticleSystem.EmissionModule emission_Bubbles_Glass_Trough;
     [System.NonSerialized] public static bool IsChanged;
-    [System.NonSerialized] public static bool IsChanged_glassTrough;
     private void Start()
     {
         liquidSystem = GetComponent<LiquidSystem>();
@@ -44,18 +44,18 @@ public class DetectHCl : MonoBehaviour
             //emissionValue_Smoke -= Time.deltaTime;
             //reactionSuppressionTime += Time.deltaTime * 20;
         }
-        if (IsDone && DetectSockets.IsSocket && IsChanged_glassTrough) { 
+        if (IsDone && DetectSockets.IsSocket && emissionValue_Bubbles_Glass_Trough < Max_emissionValue_Bubbles_Glass_Trough)
+        {
+            emissionValue_Bubbles_Glass_Trough+=Time.deltaTime;
             emission_Bubbles_Glass_Trough.rateOverTime = new ParticleSystem.MinMaxCurve(emissionValue_Bubbles_Glass_Trough);
-            IsChanged_glassTrough = false;
         }
     }
     public static void IncreseEmission(float v) 
     {
         emissionValue_Smoke += v;
         emissionValue_Bubbles += v;
-        emissionValue_Bubbles_Glass_Trough += v;
+        Max_emissionValue_Bubbles_Glass_Trough += v;
         IsChanged = true;
-        IsChanged_glassTrough = true;
     }
     
 
