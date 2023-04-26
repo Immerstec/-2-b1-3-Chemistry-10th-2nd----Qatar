@@ -21,39 +21,41 @@ public class PouringSystem1 : MonoBehaviour
         //mlpp = liquidSystem.pourPerSecond / pouringPS.emission.rateOverTime.constant;
         mlpp = liquidSystem.pourPerSecond; // Changed to this because we will be using it as pour per particle instead of sec
     }
-    //private void OnParticleCollision(GameObject other)
-    //{
-    //    int totalCollisions = pouringPS.GetCollisionEvents(other, collisionEvents);
-    //    int i = 0;
-    //   // Debug.Log(i);
-
-    //    while (i < totalCollisions)
-    //    {
-    //        if (collisionEvents[i].colliderComponent.CompareTag("Liquid"))
-    //        {
-    //            collisionEvents[i].colliderComponent.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
-    //           // collisionEvents[i].colliderComponent.transform.parent.SendMessage("calculateMolar", molar, SendMessageOptions.DontRequireReceiver);
-    //            colls++;
-    //        }
-    //        i++;
-    //       // Debug.Log(i);
-    //    }
-    //}
-    private void OnParticleTrigger()
+    private void OnParticleCollision(GameObject other)
     {
+        int totalCollisions = pouringPS.GetCollisionEvents(other, collisionEvents);
+        int i = 0;
+        // Debug.Log(i);
 
-        //Get all particles that entered a box collider
-        List<ParticleSystem.Particle> enteredParticles = new List<ParticleSystem.Particle>();
-        int enterCount = pouringPS.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enteredParticles);
-
-        if (enterCount > 0)
+        while (i < totalCollisions)
         {
+            if (collisionEvents[i].colliderComponent.CompareTag("Liquid"))
+            {
+                collisionEvents[i].colliderComponent.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
+                DetectHCl.IncreseEmission(1);
 
-            GetComponent<ParticleSystem>().trigger.GetCollider(0).gameObject.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
-
-            DetectHCl.IncreseEmission(1);
-
+                // collisionEvents[i].colliderComponent.transform.parent.SendMessage("calculateMolar", molar, SendMessageOptions.DontRequireReceiver);
+                colls++;
+            }
+            i++;
+            // Debug.Log(i);
         }
-
     }
+    //private void OnParticleTrigger()
+    //{
+
+    //    //Get all particles that entered a box collider
+    //    List<ParticleSystem.Particle> enteredParticles = new List<ParticleSystem.Particle>();
+    //    int enterCount = pouringPS.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enteredParticles);
+
+    //    if (enterCount > 0)
+    //    {
+
+    //        GetComponent<ParticleSystem>().trigger.GetCollider(0).gameObject.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
+
+    //        DetectHCl.IncreseEmission(1);
+
+    //    }
+
+    //}
 }
