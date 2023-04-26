@@ -17,10 +17,15 @@ public class DetectH2 : MonoBehaviour
     {
         if (InH2 && DetectSockets.Isbubble) 
         {
-           
-            _particleSystem_Explosion.Play();
-            IsDetectedH2 = true;
-            DetectHCl.emissionValue_Bubbles_Glass_Trough = 0;
+            if (DetectHCl.emissionValue_Bubbles_Glass_Trough > 10)
+            {
+                ParticleSystem.EmissionModule emission = _particleSystem_Explosion.emission;
+                emission.rateOverTime = new ParticleSystem.MinMaxCurve(DetectHCl.emissionValue_Bubbles_Glass_Trough);
+                _particleSystem_Explosion.Play();
+                IsDetectedH2 = true;
+                DetectHCl.emissionValue_Bubbles_Glass_Trough = 0;
+            }
+
         }
     }
     private void OnTriggerEnter(Collider other)
