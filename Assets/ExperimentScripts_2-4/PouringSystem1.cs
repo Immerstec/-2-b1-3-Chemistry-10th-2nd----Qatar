@@ -32,7 +32,7 @@ public class PouringSystem1 : MonoBehaviour
             if (collisionEvents[i].colliderComponent.CompareTag("Liquid"))
             {
                 collisionEvents[i].colliderComponent.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
-                DetectHCl.IncreseEmission(1);
+                DetectHCl.ChangeEmission(0.5f);
 
                 // collisionEvents[i].colliderComponent.transform.parent.SendMessage("calculateMolar", molar, SendMessageOptions.DontRequireReceiver);
                 colls++;
@@ -53,7 +53,7 @@ public class PouringSystem1 : MonoBehaviour
 
     //        GetComponent<ParticleSystem>().trigger.GetCollider(0).gameObject.transform.parent.SendMessage("Fill", mlpp, SendMessageOptions.DontRequireReceiver);
 
-    //        DetectHCl.IncreseEmission(1);
+    //        DetectHCl.ChangeEmission(1);
 
     //    }
 

@@ -7,8 +7,8 @@ public class DetectTube : MonoBehaviour
     [SerializeField] GameObject Zn_peice;
     [SerializeField] Vector3 pos;
     [System.NonSerialized] public bool IsDone;
-
     [System.NonSerialized] public static int numZn;
+    [System.NonSerialized] public static int numActiveZn;
     //public static List<GameObject> _gameObjects = new List<GameObject>();
 
     private void Start()
@@ -24,7 +24,9 @@ public class DetectTube : MonoBehaviour
             GameObject zn = Instantiate(Zn_peice, pos, Quaternion.identity);
             zn.transform.SetParent(gameObject.transform.parent);
             numZn++;
-            DetectHCl.IncreseEmission(50);
+            numActiveZn++;
+            DetectHCl.ChangeEmission(50);
+            Debug.Log("NewZn");
             DetectHCl.IsDoneZn = true;
             IsDone = true;
         }

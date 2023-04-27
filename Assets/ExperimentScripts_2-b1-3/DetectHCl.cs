@@ -58,6 +58,10 @@ public class DetectHCl : MonoBehaviour
             //emissionValue_Smoke -= Time.deltaTime;
             //reactionSuppressionTime += Time.deltaTime * 20;
         }
+        if (IsDone && DetectTube.numActiveZn ==0) 
+        {
+            ChangeEmission(-Time.deltaTime*30);
+        }
         if (IsDone && DetectSockets.IsSocket && emissionValue_Bubbles_Glass_Trough < Max_emissionValue_Bubbles_Glass_Trough)
         {
             emissionValue_Bubbles_Glass_Trough+=Time.deltaTime;
@@ -77,14 +81,19 @@ public class DetectHCl : MonoBehaviour
 
         }
     }
-    public static void IncreseEmission(float v) 
+    public static void ChangeEmission(float v) 
     {
-        emissionValue_Bubbles += v;
-        emissionValue_Bubbles_InLiquid += v;
-        emissionValue_Smoke += v;
-        Max_emissionValue_Bubbles_Glass_Trough += v;
-        Max_emissionValue_Bubbles_Glass_Trough__InLiquid += v;
-        IsChanged = true;
+        if (v > 0 || emissionValue_Bubbles != 0 || emissionValue_Bubbles_InLiquid != 0 || emissionValue_Bubbles_InLiquid != 0)
+        {
+            emissionValue_Bubbles = Mathf.Max(0, emissionValue_Bubbles + v);
+            emissionValue_Bubbles_InLiquid = Mathf.Max(0, emissionValue_Bubbles + v); ;
+            emissionValue_Smoke = Mathf.Max(0, emissionValue_Bubbles + v); ;
+
+            IsChanged = true;
+        }
+        Max_emissionValue_Bubbles_Glass_Trough = Mathf.Max(0, emissionValue_Bubbles + v); ;
+        Max_emissionValue_Bubbles_Glass_Trough__InLiquid = Mathf.Max(0, emissionValue_Bubbles + v);
+
     }
     
 

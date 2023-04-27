@@ -5,7 +5,7 @@ using UnityEngine;
 public class Zn : MonoBehaviour
 {
     DetectTube detectTube;
-
+    float ZnValue = 50;
     private void Start()
     {
         detectTube = GetComponent<DetectTube>();
@@ -17,10 +17,20 @@ public class Zn : MonoBehaviour
         if (detectTube.IsDone && DetectHCl.IsDone)
         {
             if (transform.localScale.x > 0.03)
-                transform.localScale -= Vector3.one * (Time.deltaTime/100);
+                transform.localScale -= Vector3.one * (Time.deltaTime / 100);
             else
-                gameObject.SetActive(false);
-        
+            {
+                float v = -(Time.deltaTime*10);
+                ZnValue += v;
+                if(ZnValue>0)
+                    DetectHCl.ChangeEmission(v);
+                else
+                {
+                    DetectTube.numActiveZn--;
+                    gameObject.SetActive(false);
+
+                }
+            }
         }
         
     }
