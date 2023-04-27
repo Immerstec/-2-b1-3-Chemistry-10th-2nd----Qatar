@@ -24,7 +24,7 @@ public class DetectHCl : MonoBehaviour
     ParticleSystem.EmissionModule emission_bubbles;
     ParticleSystem.EmissionModule emission_Bubbles_InLiquid;
     ParticleSystem.EmissionModule emission_smoke;
-    ParticleSystem.EmissionModule emission_Bubbles_Glass_Trough;
+    [System.NonSerialized] public static ParticleSystem.EmissionModule emission_Bubbles_Glass_Trough;
     ParticleSystem.EmissionModule emission_Bubbles_Glass_Trough__InLiquid;
     [System.NonSerialized] public static bool IsChanged;
     private void Start()
@@ -61,16 +61,23 @@ public class DetectHCl : MonoBehaviour
         if (IsDone && DetectTube.numActiveZn ==0) 
         {
             ChangeEmission(-Time.deltaTime*30);
+            if (emissionValue_Bubbles_Glass_Trough__InLiquid - Time.deltaTime * 10 >= 0)
+            {
+                emissionValue_Bubbles_Glass_Trough__InLiquid -= Time.deltaTime * 10;
+                emission_Bubbles_Glass_Trough__InLiquid.rateOverTime = new ParticleSystem.MinMaxCurve(emissionValue_Bubbles_Glass_Trough__InLiquid);
+            }
         }
+
         if (IsDone && DetectSockets.IsSocket && emissionValue_Bubbles_Glass_Trough < Max_emissionValue_Bubbles_Glass_Trough)
         {
-            emissionValue_Bubbles_Glass_Trough+=Time.deltaTime;
+            emissionValue_Bubbles_Glass_Trough += Time.deltaTime * 10;
             emission_Bubbles_Glass_Trough.rateOverTime = new ParticleSystem.MinMaxCurve(emissionValue_Bubbles_Glass_Trough);
         }
 
+
         if (IsDone && DetectSockets.IsSocket && emissionValue_Bubbles_Glass_Trough__InLiquid < Max_emissionValue_Bubbles_Glass_Trough__InLiquid)
         {
-            emissionValue_Bubbles_Glass_Trough__InLiquid += Time.deltaTime;
+            emissionValue_Bubbles_Glass_Trough__InLiquid += Time.deltaTime * 10;
             emission_Bubbles_Glass_Trough__InLiquid.rateOverTime = new ParticleSystem.MinMaxCurve(emissionValue_Bubbles_Glass_Trough__InLiquid);
         }
         else if(emissionValue_Bubbles_Glass_Trough__InLiquid>0)
@@ -83,16 +90,16 @@ public class DetectHCl : MonoBehaviour
     }
     public static void ChangeEmission(float v) 
     {
-        if (v > 0 || emissionValue_Bubbles != 0 || emissionValue_Bubbles_InLiquid != 0 || emissionValue_Bubbles_InLiquid != 0)
+        if (v > 0 || emissionValue_Bubbles != 0 || emissionValue_Bubbles_InLiquid != 0 || emissionValue_Bubbles_InLiquid != 0 || Max_emissionValue_Bubbles_Glass_Trough !=0 || Max_emissionValue_Bubbles_Glass_Trough__InLiquid !=0)
         {
             emissionValue_Bubbles = Mathf.Max(0, emissionValue_Bubbles + v);
             emissionValue_Bubbles_InLiquid = Mathf.Max(0, emissionValue_Bubbles + v); ;
             emissionValue_Smoke = Mathf.Max(0, emissionValue_Bubbles + v); ;
-
+            Max_emissionValue_Bubbles_Glass_Trough = Mathf.Max(0, emissionValue_Bubbles + v); ;
+            Max_emissionValue_Bubbles_Glass_Trough__InLiquid = Mathf.Max(0, emissionValue_Bubbles + v);
             IsChanged = true;
         }
-        Max_emissionValue_Bubbles_Glass_Trough = Mathf.Max(0, emissionValue_Bubbles + v); ;
-        Max_emissionValue_Bubbles_Glass_Trough__InLiquid = Mathf.Max(0, emissionValue_Bubbles + v);
+
 
     }
     
